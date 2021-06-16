@@ -19,3 +19,20 @@ func ConfigBookRouter(router *fiber.Router) {
 
 	(*router).Put("", controller.UpsertBook) //UPSERT: Cập nhật một bản ghi nếu tìm thấy còn không tạo mới
 }
+
+
+func ConfigReviewRouter(router *fiber.Router) {
+	(*router).Get("/", controller.GetAllReviews)
+
+	(*router).Get("/:id", controller.GetReviewById)
+
+	(*router).Delete("/:id", controller.DeleteReviewById)
+
+	(*router).Post("", controller.CreateReview)
+
+	(*router).Patch("", controller.UpdateReview)
+
+	(*router).Put("", controller.UpsertReview)
+
+	(*router).Get("/average/:id", controller.AverageRating)
+}

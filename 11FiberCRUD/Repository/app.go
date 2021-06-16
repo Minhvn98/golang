@@ -22,5 +22,8 @@ func main() {
 	bookRouter := app.Group("/api/book")
 	routes.ConfigBookRouter(&bookRouter) //http://localhost:3000/api/book
 
+	reviewRouter := app.Group("/api/review")
+	routes.ConfigReviewRouter(&reviewRouter) //http://localhost:3000/api/review
+
 	app.Listen(":3000")
 }

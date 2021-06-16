@@ -14,10 +14,13 @@ func GetAllBook(c *fiber.Ctx) error {
 
 func GetBookById(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
+
 	if err != nil {
 		return c.Status(400).SendString(err.Error())
 	}
+
 	book, err := repo.Books.FindBookById(int64(id))
+
 	if err != nil {
 		return c.Status(404).SendString(err.Error())
 	}
